@@ -20,7 +20,7 @@ let project = Project(
 		   deploymentTarget: .macOS(targetVersion: targetVersion),
 		   infoPlist: .file(path: "\(projectName)/src/Info.plist"),
 		   sources: ["\(projectName)/**"],
-		   resources: [],
+		   resources: ["\(projectName)/src/Assets.xcassets"],
 		   entitlements: "\(projectName)/src/Run42SeoulPackage2.entitlements",
 		   dependencies: [] // tuist generate할 경우 pod install이 자동으로 실행
 		  )
