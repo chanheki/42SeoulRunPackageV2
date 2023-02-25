@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct Run42SeoulPackage2App: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-        .windowStyle(HiddenTitleBarWindowStyle())
-    }
+	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+	var body: some Scene {
+		WindowGroup {
+			ContentView()
+		}
+		.windowStyle(HiddenTitleBarWindowStyle())
+	}
 }
