@@ -13,5 +13,6 @@ struct Run42SeoulPackage2App: App {
         WindowGroup {
             ContentView()
         }
+        .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
