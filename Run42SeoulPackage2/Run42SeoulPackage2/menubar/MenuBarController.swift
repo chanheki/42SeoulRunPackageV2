@@ -21,19 +21,12 @@ class MenuBarController: NSWorkspace {
 	}
 	
 	func startRunning() {
-		cpu.cpuTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (t) in
-			self.cpu.usageCPU()
-			self.statusBar.interval = 0.02 * (100 - max(0.0, min(99.0, self.cpu.usage.value))) / 6
-			self.statusBar.statusItem.button?.title = self.cpu.isShowUsage ? self.cpu.usage.description : ""
-		})
-		cpu.cpuTimer?.fire()
-		statusBar.isRunning = true
+		statusBar.isRunning = cpu.processCPU(statusBar)
 		animate()
 	}
 	
 	func stopRunning() {
-		statusBar.isRunning = false
-		cpu.cpuTimer?.invalidate()
+		statusBar.isRunning = cpu.StopCPU()
 	}
 	
 	func animate() {
