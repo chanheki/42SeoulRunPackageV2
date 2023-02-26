@@ -11,6 +11,7 @@ import SwiftUI
 struct WindowView: View {
     
     var window = NSScreen.main?.visibleFrame
+    var url: String = "https://intra.42.fr"
     @State var selected = "42Intra"
     @Namespace var animation
     
@@ -77,10 +78,8 @@ struct WindowView: View {
             .frame(width: 160)
             
             Spacer()
-            RoundedRectangle(cornerRadius: 15)
-                .fill(Color.white.opacity(0.5))
-                .frame(width: window!.width / 1.8, height: window!.height / 1.55)
-                .offset(x: -15)
+            
+            BrowserView(url: url)
         }
 
         .background(Color.white.opacity(0))
