@@ -83,7 +83,7 @@ struct WindowView: View {
         }
 
         .background(Color.white.opacity(0))
-        .frame(width: window!.width / 1.5, height: window!.height / 1.5)
+        .frame(width: HostingView().size.width, height: HostingView().size.height)
     }
 
     
