@@ -31,7 +31,9 @@ struct WebView: NSViewRepresentable {
         let webView: WKWebView = WKWebView()
         let request = URLRequest(url: self.url)
         webView.customUserAgent = "Chrome"
-        webView.load(request)
+        DispatchQueue.main.async {
+            webView.load(request)
+        }
         return webView
     }
 
