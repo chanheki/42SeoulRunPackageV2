@@ -11,9 +11,8 @@ import SwiftUI
 struct Run42SeoulPackage2App: App {
 	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	var body: some Scene {
-		WindowGroup {
-			ContentView()
+		Settings {
+			
 		}
-		.windowStyle(HiddenTitleBarWindowStyle())
 	}
 }

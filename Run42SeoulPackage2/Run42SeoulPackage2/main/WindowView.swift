@@ -9,88 +9,88 @@
 import SwiftUI
 
 struct WindowView: View {
-    
-    var window = NSScreen.main?.visibleFrame
-    var url: String = "https://intra.42.fr"
-    @State var selected = "42Intra"
-    @Namespace var animation
-    
-    var body: some View {
-        
-        HStack {
-            HStack(spacing: 0) {
-                VStack {
-                    Group {
-                        HStack {
-                            Image("42flip_01")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 40, height: 40)
-                            Text("Run Pack")
-                                .fontWeight(.bold)
-                                .offset(x: -8)
-                            Spacer(minLength: 0)
-                        }
-                        .padding(.top, 5)
-                        .padding(.leading)
-                        
-                        MenuButtons(title: "42Intra", animation: animation, selected: $selected)
-                        MenuButtons(title: "Jiphhyeonjeon", animation: animation, selected: $selected)
-                        MenuButtons(title: "24Hane", animation: animation, selected: $selected)
-                        MenuButtons(title: "80000Coding", animation: animation, selected: $selected)
-                        Divider().offset(x: -2)
-                        MenuButtons(title: "About", animation: animation, selected: $selected)
-                        MenuButtons(title: "Quit", animation: animation, selected: $selected)
-                    }
+	
+	var window = NSScreen.main?.visibleFrame
+	@State var url: String = "https://intra.42.fr"
+	@State var selected: String = "42Intra"
+	@Namespace var animation
+	
+	var body: some View {
+		
+		HStack {
+			HStack(spacing: 0) {
+				VStack {
+					Group {
+						HStack {
+							Image("42flip_01")
+								.resizable()
+								.aspectRatio(contentMode: .fit)
+								.frame(width: 40, height: 40)
+							Text("Run Pack")
+								.fontWeight(.bold)
+								.offset(x: -8)
+							Spacer(minLength: 0)
+						}
+						.padding(.top, 5)
+						.padding(.leading)
+						
+						MenuButtons(title: "42Intra", animation: animation, selected: $selected, url: $url)
+						MenuButtons(title: "Jiphyeonjeon", animation: animation, selected: $selected, url: $url)
+						MenuButtons(title: "24Hane", animation: animation, selected: $selected, url: $url)
+						MenuButtons(title: "80000Coding", animation: animation, selected: $selected, url: $url)
+						Divider().offset(x: -2)
+						MenuButtons(title: "About", animation: animation, selected: $selected, url: $url)
+						MenuButtons(title: "Quit", animation: animation, selected: $selected, url: $url)
+					}
 
-                    Spacer(minLength: 0)
-                                        
-                    HStack(spacing: 10) {
-                        Image("cat_page1")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
-                            .clipShape(Circle())
-                            .offset(x: -15)
-                        VStack(alignment: .leading) {
-                            Text("junyoo")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                                .offset(x: -15)
-                            Text("c1r1s1")
-                                .font(.caption2)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                                .offset(x: -15)
-                        }
-                    }
-                    .background(RoundedRectangle(cornerRadius: 15).fill(Color.white.opacity(0.5))
-                        .frame(width: 130, height: 40)
-                    )
-                    .padding(.bottom, 15)
+					Spacer(minLength: 0)
+										
+					HStack(spacing: 10) {
+						Image("cat_page1")
+							.resizable()
+							.aspectRatio(contentMode: .fit)
+							.frame(width: 30, height: 30)
+							.clipShape(Circle())
+							.offset(x: -15)
+						VStack(alignment: .leading) {
+							Text("junyoo")
+								.font(.caption)
+								.fontWeight(.semibold)
+								.foregroundColor(.white)
+								.offset(x: -15)
+							Text("c1r1s1")
+								.font(.caption2)
+								.fontWeight(.semibold)
+								.foregroundColor(.white)
+								.offset(x: -15)
+						}
+					}
+					.background(RoundedRectangle(cornerRadius: 15).fill(Color.white.opacity(0.5))
+						.frame(width: 130, height: 40)
+					)
+					.padding(.bottom, 15)
 
-                }
+				}
 
-                Divider()
-                    .offset(x: -2)
-            }
-            .frame(width: 160)
-            
-            Spacer()
-            
-            BrowserView(url: url)
-        }
+				Divider()
+					.offset(x: -2)
+			}
+			.frame(width: 160)
+			
+			Spacer()
 
-        .background(Color.white.opacity(0))
-        .frame(width: HostingView().size.width, height: HostingView().size.height)
-    }
+			BrowserView(url: $url)
+		}
 
-    
+		.background(Color.white.opacity(0))
+		.frame(width: window!.width / 2, height: window!.height / 2)
+	}
+
+	
 }
 
 struct WindowView_Previews: PreviewProvider {
-    static var previews: some View {
-        WindowView()
-    }
+	static var previews: some View {
+		WindowView()
+	}
 }
