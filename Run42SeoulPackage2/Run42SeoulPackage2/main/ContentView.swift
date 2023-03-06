@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        WindowView()
-            .preferredColorScheme(.dark)
-    }
+	var body: some View {
+		WindowView()
+			.preferredColorScheme(.dark)
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }
